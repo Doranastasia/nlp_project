@@ -103,4 +103,4 @@ def index():
 
 
 app = rx.App()
-app.add_page(index, title="Text suggestion online!")
+app.add_page(index, title="Text suggestion")
