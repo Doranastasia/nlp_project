@@ -71,31 +71,36 @@ class State(rx.State):
 def index():
     return rx.center(
         rx.vstack(
-            rx.heading("Text suggestion online!", size="8"),
-            rx.heading("Made by Dorofeeva Anastasia, HSE NLP Programme", size="5"),
+            rx.heading("Text suggestion:", size="8", color="#ffffff"),
+            rx.heading("Made by Dorofeeva Anastasia, HSE ADD", size="5", color="#dcd7f2"),
             rx.input(
                 placeholder="Enter a prompt... ",
                 on_blur=State.set_prompt,
                 width="25em",
-                border_color="#1c2024",
+                border_color="#b57edc",
+                color="#ffffff",
+                background_color="#6a4c9c"
             ),
             rx.button(
                 "suggest continuation", 
                 on_click=State.get_suggestion,
                 width="25em",
                 loading=State.processing, 
-                background_color="#1c2024"
+                background_color="#9b4d96",
+                color="#ffffff",
+                border_color="#7a3f7b"
             ),
             rx.cond(
                 State.complete,
-                rx.text(State.suggested_text, text_align="center", font_weight="bold", color="black")
+                rx.text(State.suggested_text, text_align="center", font_weight="bold", color="#ffffff")
             ),
             align="center",
         ),
         width="100%",
         height="100vh",
-        background="linear-gradient(to right, #a8c0ff, #3f2b96)"
+        background="linear-gradient(to right, #6a4c9c, #9b4d96)"
     )
+
 
 app = rx.App()
 app.add_page(index, title="Text suggestion online!")
